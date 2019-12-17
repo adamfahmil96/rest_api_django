@@ -4,8 +4,10 @@ from rest_framework import routers
 
 # router digunakan untuk menghandle route URL awal ketika user akan mengakses API
 router = routers.DefaultRouter()
-# yang awalnya router diarahkan ke default tampilan, namun kita akan mengganti router tersebut dengan tampilan view dari Language (REST API kita)
+# daftarkan view ke router supaya tampil
 router.register('languages', views.LanguageView)
+router.register('paradigms', views.ParadigmView)
+router.register('programmers', views.ProgrammerView)
 
 urlpatterns = [
     path('', include(router.urls))
