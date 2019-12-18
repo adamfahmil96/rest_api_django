@@ -1,0 +1,49 @@
+Langkah-langkah Django REST Framework
+PRETTY PRINTED
+
+Video 1
+-------
+
+1. Buat folder
+2. Instal Django dan Django REST: pipenv install djangorestframework
+3. Masuk ke environment: pipenv shell
+4. Lihat package: pip list
+5. Lakukan migrasi database: python manage.py migrate
+6. Membuat SuperUser: python manage.py createsuperuser, lalu masukkan username, email, dan password
+7. Membuat app "languages": python manage.py startapp languages
+8. Tambahkan nama app di nama_project > settings.py > INSTALLED_APPS
+9. Membuat model (bisa dikatakan di dalamnya 1 class untuk 1 tabel data), lalu lakukan migrasi: python manage.py makemigrations >> python manage.py migrate
+10. Untuk menjalankan server: python manage.py runserver
+11. Untuk mengatur url project, masuknya di nama_project > urls.py
+12. Untuk mengatur url app, masuknya nama_app > urls.py
+13. Setiap model yang ditambahkan di models.py pada app, harus didaftarkan ke admin.py
+14. Lakukan pengaturan Serializer dengan membuat file sendiri serializers.py di app
+15. Lakukan pengaturan view di views.py di app
+
+Video 2
+-------
+
+1. Pada bagian video ini, YouTuber ingin "paradigm" itu mengakses dari tabel lain (One-to-One). Lalu ada penambahan class "programmer" yang nanti bisa mengakses banyak dari tabel "languages". Semuanya diubah di bagian models.py pada app.
+2. Setiap models.py yang diubah, jangan lupa lakukan: python manage.py makemigrations >> python manage.py migrate
+3. Ubah bagian views.py juga
+4. Daftarkan masing-masing view ke urls.py
+
+Video 3
+-------
+
+1. Ada dua hal yang harus diperhatikan: authentication dan permissions. Permissions digunakan untuk mencegah user melakukan aktivitas di luar aktivitas yang diizinkan.
+2. Pertama membuat tombol login di sebelah pojok kanan atas, pada urls.py di project tambahkan: path('api-auth/',include('rest_framework.urls')) di urlpatterns.
+3. Langkah selanjutnya di video ini adalah menambahkan permissions untuk "language" (contoh saja). Caranya bisa diletakkan di views.py pada app, atau diletakkan di settings.py pada project.
+4. IsAuthenticated = "Authentication credentials were not provided"
+   IsAuthenticatedOrReadOnly = Hanya bisa baca doang
+   AllowAny = Semua bisa dilakukan tanpa login sekalipun
+  
+Video 4
+-------
+
+1. Instal JWT (JSON Web Tokens): pipenv install djangorestframework_simplejwt
+2. Lakukan pengaturan di settings.py bagian REST_FRAMEWORK
+3. Tambahkan ekstensi token, pertama untuk mendapatkan token, kedua untuk merefresh token dg yang baru. Tambahkan di project pada urls.py yaitu TokenObtainPairView (dapat lalu bandingkan token) dan TokenRefreshView (refresh token apabila sudah expired).
+4. Lakukan beberapa percobaan di Postman dahulu.
+5. Buat file send.py di folder project
+6. Lakukan instal "requests": pipenv install requests
