@@ -123,5 +123,7 @@ STATIC_URL = '/static/'
 
 REST_FRAMEWORK = {
     # semua kalau mau edit/add, harus login dulu (diterapkan pada seluruh model)
-    'DEFAULT_PERMISSION_CLASSES' : ('rest_framework.permissions.IsAuthenticated',)
+    'DEFAULT_PERMISSION_CLASSES' : ('rest_framework.permissions.IsAuthenticated',),
+
+    'DEFAULT_AUTHENTICATION_CLASSES' : ('rest_framework_simplejwt.authentication.JWTAuthentication',)
 }
