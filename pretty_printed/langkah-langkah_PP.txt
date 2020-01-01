@@ -8,17 +8,18 @@ Video 1
 2. Instal Django dan Django REST: pipenv install djangorestframework
 3. Masuk ke environment: pipenv shell
 4. Lihat package: pip list
-5. Lakukan migrasi database: python manage.py migrate
-6. Membuat SuperUser: python manage.py createsuperuser, lalu masukkan username, email, dan password
-7. Membuat app "languages": python manage.py startapp languages
-8. Tambahkan nama app di nama_project > settings.py > INSTALLED_APPS
-9. Membuat model (bisa dikatakan di dalamnya 1 class untuk 1 tabel data), lalu lakukan migrasi: python manage.py makemigrations >> python manage.py migrate
-10. Untuk menjalankan server: python manage.py runserver
-11. Untuk mengatur url project, masuknya di nama_project > urls.py
-12. Untuk mengatur url app, masuknya nama_app > urls.py
-13. Setiap model yang ditambahkan di models.py pada app, harus didaftarkan ke admin.py
-14. Lakukan pengaturan Serializer dengan membuat file sendiri serializers.py di app
-15. Lakukan pengaturan view di views.py di app
+5. Membuat project baru: django-admin startproject api_example (api_example adalah nama project)
+6. Lakukan migrasi database: python manage.py migrate
+7. Membuat SuperUser: python manage.py createsuperuser, lalu masukkan username, email, dan password
+8. Membuat app "languages": python manage.py startapp languages
+9. Tambahkan nama app di nama_project > settings.py > INSTALLED_APPS
+10. Membuat model (bisa dikatakan di dalamnya 1 class untuk 1 tabel data), lalu lakukan migrasi: python manage.py makemigrations >> python manage.py migrate
+11. Untuk menjalankan server: python manage.py runserver
+12. Untuk mengatur url project, masuknya di nama_project > urls.py
+13. Untuk mengatur url app, masuknya nama_app > urls.py
+14. Setiap model yang ditambahkan di models.py pada app, harus didaftarkan ke admin.py
+15. Lakukan pengaturan Serializer dengan membuat file sendiri serializers.py di app
+16. Lakukan pengaturan view di views.py di app
 
 Video 2
 -------
@@ -47,3 +48,25 @@ Video 4
 4. Lakukan beberapa percobaan di Postman dahulu.
 5. Buat file send.py di folder project
 6. Lakukan instal "requests": pipenv install requests
+
+
+Langkah-langkah Authentication Basics
+PRETTY PRINTED
+
+Video 1 (Django Authentication Basics)
+--------------------------------------
+
+1. Membuat project: django-admin startproject authenticate
+2. Lakukan migrasi: python manage.py migrate
+3. Membuat app: python manage.py startapp user_example
+4. Membuat SuperUser: python manage.py createsuperuser. Lalu isi username, email, dan password.
+5. Menjalankan runserver: python manage.py runserver
+6. Tambahkan beberapa urls app pada nama_project > urls.py
+7. Masukkan app ke INSTALLED_APPS
+8. Membuat urls.py di folder app
+9. Menuliskan views.py di folder app yaitu fungsi index
+10. Buat folder dan file untuk index.html (sesuai yang ditulis di views.py): user_example > templates > user_example > index.html
+11. Buat folder dan file untuk login.html: user_example > templates > registration > login.html
+12. Tambahkan sesuatu di settings.py pada folder project: LOGIN_REDIRECT_URL = '/'
+13. Menuliskan views.py di folder app yaitu fungsi register
+14. Buat file register.html di user_example > templates > registration > register.html
